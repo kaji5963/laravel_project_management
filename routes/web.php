@@ -8,6 +8,7 @@ use Illuminate\Support\Facades\Route;
 // projects route
 Route::prefix('projects')
     ->controller(ProjectController::class)
+    ->middleware('auth')
     ->name('projects.')
     ->group(function () {
         Route::get('/', 'index')->name('index');
@@ -22,6 +23,7 @@ Route::prefix('projects')
 // users route
 Route::prefix('users')
     ->controller(UserController::class)
+    ->middleware('admin_role')
     ->name('users.')
     ->group(function () {
         Route::get('/', 'index')->name('index');
