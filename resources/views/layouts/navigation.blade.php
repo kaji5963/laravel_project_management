@@ -19,7 +19,6 @@
                     <x-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                         Users
                     </x-nav-link>
-
                     @endif
                 </div>
             </div>
@@ -83,10 +82,11 @@
             <x-responsive-nav-link :href="route('projects.index')" :active="request()->routeIs('projects.index')">
                 Projects
             </x-responsive-nav-link>
+            @if (Auth::user()->role == "admin")
             <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                 Users
             </x-responsive-nav-link>
-
+            @endif
         </div>
 
         <!-- Responsive Settings Options -->
