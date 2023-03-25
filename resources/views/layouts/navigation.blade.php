@@ -20,6 +20,9 @@
                         Users
                     </x-nav-link>
                     @endif
+                    <x-nav-link :href="route('my_project.index')" :active="request()->routeIs('my_project.index')">
+                        My_Project
+                    </x-nav-link>
                 </div>
             </div>
 
@@ -86,6 +89,9 @@
             <x-responsive-nav-link :href="route('users.index')" :active="request()->routeIs('users.index')">
                 Users
             </x-responsive-nav-link>
+            <x-nav-link :href="route('my_project.index')" :active="request()->routeIs('my_project.index')">
+                My_Project
+            </x-nav-link>
             @endif
         </div>
 
