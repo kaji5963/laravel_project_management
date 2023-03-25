@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\MyProjectController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
@@ -37,6 +38,14 @@ Route::prefix('users')
         Route::get('/edit/{id}', 'edit')->name('edit');
         Route::post('/edit/{id}', 'update')->name('update');
         Route::get('/destroy/{id}', 'destroy')->name('destroy');
+    });
+
+Route::prefix('my_project')
+    ->controller(MyProjectController::class)
+    ->middleware('auth')
+    ->name('my_project.')
+    ->group(function () {
+        Route::get('/', 'index')->name('index');
     });
 
 Route::get('/dashboard', function () {
