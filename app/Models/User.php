@@ -44,6 +44,12 @@ class User extends Authenticatable
         'email_verified_at' => 'datetime',
     ];
 
+    //リレーション
+    public function projects()
+    {
+        return $this->hasMany(Project::class);
+    }
+
     public function scopeSearch($query, $search)
     {
         if ($search !== null) {

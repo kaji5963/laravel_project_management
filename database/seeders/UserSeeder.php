@@ -56,24 +56,6 @@ class UserSeeder extends Seeder
                 'created_at' => now(),
                 'updated_at' => now(),
             ],
-            [
-                'name' => "鈴木",
-                'email' => "user3@test.com",
-                'password' => "aaaaaaaa",
-                'role' => 'user',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-            [
-                'name' => "大谷",
-                'email' => "user4@test.com",
-                'password' => "aaaaaaaa",
-                'role' => 'user',
-                'created_at' => now(),
-                'updated_at' => now(),
-            ],
-
-
         ]);
     }
 }
