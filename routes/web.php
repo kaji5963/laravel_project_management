@@ -5,6 +5,10 @@ use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
+Route::get('/', function () {
+    return view('welcome');
+});
+
 // projects route
 Route::prefix('projects')
     ->controller(ProjectController::class)
@@ -34,10 +38,6 @@ Route::prefix('users')
         Route::post('/edit/{id}', 'update')->name('update');
         Route::get('/destroy/{id}', 'destroy')->name('destroy');
     });
-
-Route::get('/', function () {
-    return view('welcome');
-});
 
 Route::get('/dashboard', function () {
     return view('dashboard');
