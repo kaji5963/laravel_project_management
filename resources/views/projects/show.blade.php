@@ -19,7 +19,9 @@
                 削除</x-button.route_button>
             </div>
 
-            <x-container.show_contents title="【プロジェクトID" :contents="$project->id" />
+            <x-container.show_contents title="【プロジェクト作成者】" :contents="$project->user->name" />
+
+            <x-container.show_contents title="【プロジェクトID】" :contents="$project->id" />
 
             <x-container.show_contents title="【プロジェクト名】" :contents="$project->name" />
 

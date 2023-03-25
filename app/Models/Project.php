@@ -17,6 +17,7 @@ class Project extends Model
         'customer',
         'skills',
         'assignees',
+        'user_id'
     ];
 
     // 配列を保存する際にstringをarrayにキャスト
@@ -24,6 +25,12 @@ class Project extends Model
         'skills' => 'array',
         'assignees' => 'array'
     ];
+
+    //リレーション
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 
     // 日本語を配列で保存する際に文字化けするため対策
     protected function asJson($value)

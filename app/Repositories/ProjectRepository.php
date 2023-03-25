@@ -6,6 +6,7 @@ use App\Models\Project;
 use App\Models\Skill;
 use App\Models\Status;
 use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 
 class ProjectRepository
@@ -39,6 +40,7 @@ class ProjectRepository
         'customer' => $request->customer,
         'skills' => $request->skills,
         'assignees' => $request->assignees,
+        'user_id' => Auth::user()->id,
       ]);
 
       DB::commit();
@@ -50,7 +52,6 @@ class ProjectRepository
   public static function getSingleProject($id)
   {
     $project = Project::findOrFail($id);
-
 
     return $project;
   }
