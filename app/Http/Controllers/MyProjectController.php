@@ -2,9 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Project;
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Auth;
+use App\Services\MyProjectService;
 
 class MyProjectController extends Controller
 {
@@ -13,9 +11,8 @@ class MyProjectController extends Controller
      */
     public function index()
     {
-        // $projects = ProjectService::index($request);
-        $authName = Auth::user()->name;
-        $projects = Project::paginate(10);
+        $authName = MyProjectService::authName();
+        $projects = MyProjectService::projects();
 
         return view('my_project.index', compact('authName', 'projects'));
     }
