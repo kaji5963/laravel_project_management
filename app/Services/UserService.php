@@ -9,7 +9,10 @@ class UserService
   public static function index($request)
   {
     $search = $request->search;
-    $users = UserRepository::getAllUsers($search);
+
+    $select_role = $request->role;
+
+    $users = UserRepository::getAllUsers($search, $select_role);
 
     return $users;
   }

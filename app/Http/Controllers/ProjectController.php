@@ -15,7 +15,7 @@ class ProjectController extends Controller
     {
         $projects = ProjectService::index($request);
 
-        return view('projects.index', compact('projects'));
+        return view('projects.index', ['projects' => $projects[0], 'statuses' => $projects[1], 'search' => $request->search, 'select_status' => $request->status]);
     }
 
     /**

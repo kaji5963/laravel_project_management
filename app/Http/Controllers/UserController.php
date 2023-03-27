@@ -15,7 +15,7 @@ class UserController extends Controller
     {
         $users = UserService::index($request);
 
-        return view('users.index', compact('users'));
+        return view('users.index', ['users' => $users, 'search' => $request->search, 'select_role' => $request->role]);
     }
 
     /**

@@ -12,9 +12,10 @@
         <section class="text-gray-600 body-font">
           <div class="container py-12 mx-auto">
             <div class="flex mb-8 lg:w-2/3 w-full mx-auto">
-              <div>
-                <x-container.search_container pass="users.index" />
-              </div>
+              <x-container.role_select_container :role="$select_role" />
+
+              <x-container.search_container pass="users.index" />
+
               <x-button.route_button color="green" pass="users.create">ユーザー作成</x-button.route_button>
             </div>
 
