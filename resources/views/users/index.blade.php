@@ -16,7 +16,7 @@
 
               <x-container.search_container pass="users.index" />
 
-              <x-button.route_button color="green" pass="users.create">ユーザー作成</x-button.route_button>
+              <x-button.route_button color="green" pass="users.create">新規作成</x-button.route_button>
             </div>
 
             <div class="lg:w-2/3 w-full mx-auto overflow-auto">

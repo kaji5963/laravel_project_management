@@ -15,7 +15,7 @@
 
               <x-container.search_container pass="projects.index" :search="$search" />
 
-              <x-button.route_button color="green" pass="projects.create">プロジェクト作成</x-button.route_button>
+              <x-button.route_button color="green" pass="projects.create">新規作成</x-button.route_button>
             </div>
 
             <div class="lg:w-2/3 w-full mx-auto overflow-auto">
