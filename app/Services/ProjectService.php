@@ -10,7 +10,9 @@ class ProjectService
   {
     $search = $request->search;
 
-    $projects = ProjectRepository::getAllProjects($search);
+    $select_status = $request->status;
+
+    $projects = ProjectRepository::getAllProjects($search, $select_status);
 
     return $projects;
   }

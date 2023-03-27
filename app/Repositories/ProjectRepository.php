@@ -11,14 +11,45 @@ use Illuminate\Support\Facades\DB;
 
 class ProjectRepository
 {
-  public static function getAllProjects($search)
+  public static function getAllProjects($search, $select_status)
   {
     // ローカルスコープ  modelに記載
     $query = Project::search($search);
 
-    $projects = $query->paginate(10);
+    $statuses = Status::all();
 
-    return $projects;
+    if ($select_status !== null) {
+      switch ($select_status) {
+        case "新規":
+          $projects = $query->where('status', "新規")->paginate(10);
+          break;
+        case "計画中":
+          $projects = $query->where('status', "計画中")->paginate(10);
+          break;
+        case "提案中":
+          $projects = $query->where('status', "提案中")->paginate(10);
+          break;
+        case "受注":
+          $projects = $query->where('status', "受注")->paginate(10);
+          break;
+        case "失注":
+          $projects = $query->where('status', "失注")->paginate(10);
+          break;
+        case "確認中":
+          $projects = $query->where('status', "確認中")->paginate(10);
+          break;
+        case "納品":
+          $projects = $query->where('status', "納品")->paginate(10);
+          break;
+        default:
+          $projects = $query->paginate(10);
+          break;
+      }
+    } else {
+      $projects = $query->paginate(10);
+    }
+
+    return [$projects, $statuses];
   }
 
   public static function createView()

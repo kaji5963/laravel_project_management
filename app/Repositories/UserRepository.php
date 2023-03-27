@@ -8,10 +8,25 @@ use Illuminate\Support\Facades\Hash;
 
 class UserRepository
 {
-  public static function getAllUsers($search)
+  public static function getAllUsers($search, $select_role)
   {
     $query = User::search($search);
-    $users = $query->paginate(5);
+
+    if ($select_role !== null) {
+      switch ($select_role) {
+        case "admin":
+          $users = $query->where('role', 'admin')->paginate(10);
+          break;
+        case "user":
+          $users = $query->where('role', 'user')->paginate(10);
+          break;
+        default:
+          $users = $query->paginate(10);
+          break;
+      }
+    } else {
+      $users = $query->paginate(10);
+    }
 
     return $users;
   }
