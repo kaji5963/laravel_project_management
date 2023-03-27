@@ -23,7 +23,9 @@
                     <x-nav-link :href="route('my_project.index')" :active="request()->routeIs('my_project.index')">
                         My_Project
                     </x-nav-link>
-
+                    <x-nav-link :href="route('profile.edit')" :active="request()->routeIs('profile.edit')">
+                        My_Profile
+                    </x-nav-link>
                 </div>
             </div>
 
